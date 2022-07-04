@@ -1,0 +1,26 @@
+    bool DFSrec(vector<int> adj[],int s, vector<bool> vis,vector<bool> revis){
+        vis[s]=true;
+        revis[s]=true;
+        for(auto it: adj[s]){
+            if(vis[it]==false&&DFSrec(adj,it,vis,revis)){
+                return true;
+            }
+            else if(revis[it]==true)
+                return true;
+            
+        }
+        revis[s]=false;
+        return false;
+    }
+    bool isCyclic(int V, vector<int> adj[]) {
+        // code here
+        vector<bool> vis(V,false);
+        vector<bool> revis(V,false);
+        for(int i=0;i<V;i++){
+            if(vis[i]==false){
+                if(DFSrec(adj,i,vis,revis)==true)
+                    return true;
+            }
+        }
+        return false;
+    }
