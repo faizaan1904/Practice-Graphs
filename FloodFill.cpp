@@ -1,4 +1,4 @@
-  struct rc{   int r; int c; };
+ /* struct rc{   int r; int c; };
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         int orig_color = image[sr][sc];
         if(color == orig_color) return image;
@@ -27,3 +27,26 @@
         }
         return image;
     }
+*/
+class Solution {
+public:
+    void f(vector<vector<int>>& image, int r, int c, int &color,int &cc,int &m,int &n,vector<vector<bool>>& vis){
+        if(r<0||r>m-1||c<0||c>n-1||image[r][c]!=cc||vis[r][c]){
+            return;
+        }
+       vis[r][c]=true;
+       image[r][c]=color;
+        
+        f(image,r-1,c,color,cc,m,n,vis);
+        f(image,r,c-1,color,cc,m,n,vis);
+        f(image,r+1,c,color,cc,m,n,vis);
+        f(image,r,c+1,color,cc,m,n,vis);
+        
+    }
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        int cc=image[sr][sc],m=image.size(),n=image[0].size();
+        vector<vector<bool>>vis(m,vector<bool>(n,false));
+        f(image,sr,sc,color,cc,m,n,vis);
+        return image;
+    }
+};
