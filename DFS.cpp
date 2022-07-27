@@ -1,12 +1,11 @@
-void dfs(int v, vector<int> adj[], vector<int>& ans, vector<bool>& vis){
-        
-        if(vis[v]) return;
+void dfs(int v, vector<vector<int>> adj, vector<int>& ans, vector<bool>& vis){
         
         vis[v] = true;
         ans.push_back(v);
         
         for(auto child : adj[v]){
-            dfs(child, adj, ans, vis);
+            if(vis[child]==false)    
+                dfs(child, adj, ans, vis);
         }
     }
     
