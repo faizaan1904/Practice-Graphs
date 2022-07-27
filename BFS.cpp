@@ -1,4 +1,4 @@
-vector<int> bfsOfGraph(int V, vector<int> adj[]) {
+vector<int> bfsOfGraph(int V, vector<vector<int>> adj) {
         // Code here
        bool travel[V+1];
        vector<int>v;
