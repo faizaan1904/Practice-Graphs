@@ -1,11 +1,12 @@
 vector<int> bfsOfGraph(int V, vector<vector<int>> adj) {
         // Code here
-       bool travel[V+1];
+       //bool travel[V+1];
+       vector<boo>travel(V,false);
        vector<int>v;
        queue<int>q;
-       for(int i =0 ; i< V ; i++){
+       /*for(int i =0 ; i< V ; i++){
            travel[i]=false;
-       }
+       }*/
        q.push(0);
        travel[0]=true;
        while(!q.empty()){
