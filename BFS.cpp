@@ -1,7 +1,7 @@
 vector<int> bfsOfGraph(int V, vector<vector<int>> adj) {
         // Code here
        //bool travel[V+1];
-       vector<boo>travel(V,false);
+       vector<bool>travel(V,false);
        vector<int>v;
        queue<int>q;
        /*for(int i =0 ; i< V ; i++){
